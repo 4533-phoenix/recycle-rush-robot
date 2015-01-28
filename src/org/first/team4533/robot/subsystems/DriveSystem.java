@@ -1,45 +1,79 @@
 package org.first.team4533.robot.subsystems;
 
 import org.first.team4533.robot.RobotMap;
+import org.first.team4533.robot.commands.DriveWithJoystick;
 
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import org.first.team4533.robot.RobotMap;
 /**
  *
  */
 public class DriveSystem extends Subsystem {
     
-    private static final DriveSystem INSTANCE = new DriveSystem();
-    private Talon leftFront = new Talon(RobotMap.TALON_LEFT_FRONT);
-    private Talon rightFront = new Talon(RobotMap.TALON_RIGHT_FRONT);
-    private Talon leftRear = new Talon(RobotMap.TALON_LEFT_REAR);
-    private Talon rightRear = new Talon(RobotMap.TALON_RIGHT_REAR);
-    private RobotDrive robotDrive = new RobotDrive(this.leftFront, this.leftRear, this.rightFront, this.rightRear);
+    public static final DriveSystem INSTANCE = new DriveSystem();
+    private Talon leftFront;
+    private Talon rightFront;
+    private Talon leftRear;
+    private Talon rightRear;
+    private RobotDrive robotDrive;
     
-    public void driveForward(double value) {
+    private DriveSystem(){
+    	leftFront = new Talon(RobotMap.MOTOR_LEFT_FRONT);
+    	rightFront = new Talon(RobotMap.MOTOR_RIGHT_FRONT);
+    	leftRear = new Talon(RobotMap.MOTOR_LEFT_REAR);
+    	rightRear = new Talon(RobotMap.MOTOR_RIGHT_REAR);
+    	robotDrive = new RobotDrive(this.leftFront, this.leftRear, this.rightFront, this.rightRear);
+    }
+    
+    public static DriveSystem getInstance(){
+    	return INSTANCE;
+    }
+    
+    public void driveWithJoystick(Joystick driver){
+    	double x = -driver.getX() * 0.80;
+    	double y = driver.getY() * 0.80;
+    	double rot = driver.getZ() * 0.80;
+    	this.robotDrive.mecanumDrive_Cartesian(x, y, rot, 0.0);
+    }
+    
+    public void forward(double value) {
         this.robotDrive.mecanumDrive_Cartesian(0.0, -value, 0.0, 0.0);
     }
     
-    public void driveForward(){
-    	this.driveForward(1.0);
+    public void forward(){
+    	this.forward(1.0);
     }
     
-    public void driveBackward(double value) {
+    public void backward(double value) {
         this.robotDrive.mecanumDrive_Cartesian(0.0, value, 0.0, 0.0);
     }
 	
-    public void driveBackward(){
-    	this.driveForward(1.0);
+    public void backward(){
+    	this.backward(1.0);
     }
     
     public void stop() {
         this.robotDrive.mecanumDrive_Cartesian(0.0, 0.0, 0.0, 0.0);
     }
     
+    public void driveLeft(double value){
+    	this.robotDrive.mecanumDrive_Cartesian(-value, 0.0, 0.0, 0.0);
+    }
+    
+    public void driveLeft(){
+    	this.driveLeft(1.0);
+    }
+    
+    public void driveRight(double value){
+    	this.robotDrive.mecanumDrive_Cartesian(value, 0.0, 0.0, 0.0);
+    }
+    
+    public void driveRight(){
+    	this.driveRight(1.0);
+    }
+    
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
+        this.setDefaultCommand(new DriveWithJoystick());
     }
 }
 
