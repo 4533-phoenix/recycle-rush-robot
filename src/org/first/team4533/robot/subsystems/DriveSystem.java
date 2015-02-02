@@ -4,6 +4,7 @@ import org.first.team4533.robot.RobotMap;
 import org.first.team4533.robot.commands.DriveWithJoystick;
 
 import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.RobotDrive.MotorType;
 import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
@@ -23,6 +24,8 @@ public class DriveSystem extends Subsystem {
     	leftRear = new Talon(RobotMap.MOTOR_LEFT_REAR);
     	rightRear = new Talon(RobotMap.MOTOR_RIGHT_REAR);
     	robotDrive = new RobotDrive(this.leftFront, this.leftRear, this.rightFront, this.rightRear);
+    	robotDrive.setInvertedMotor(MotorType.kFrontRight, true);
+    	robotDrive.setInvertedMotor(MotorType.kRearRight, true);
     }
     
     public static DriveSystem getInstance(){

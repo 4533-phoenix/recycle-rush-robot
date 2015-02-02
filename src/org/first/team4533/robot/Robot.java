@@ -7,7 +7,9 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 import org.first.team4533.robot.commands.ExampleCommand;
+import org.first.team4533.robot.subsystems.DriveSystem;
 import org.first.team4533.robot.subsystems.ExampleSubsystem;
+import org.first.team4533.robot.subsystems.LiftSystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -55,6 +57,8 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
+        DriveSystem.getInstance();
+        LiftSystem.getInstance();
     }
 
     /**

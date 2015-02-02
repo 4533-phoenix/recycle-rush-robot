@@ -10,6 +10,8 @@ public class DriveWithJoystick extends Command{
 	
 	public DriveWithJoystick(){
 		this.drive = DriveSystem.getInstance();
+		driver = new Joystick(0);
+		this.requires(drive);
 	}
 	
 	protected void execute(){
