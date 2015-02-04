@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 import org.first.team4533.robot.subsystems.DriveSystem;
+import org.first.team4533.robot.subsystems.GripperSystem;
 import org.first.team4533.robot.subsystems.LiftSystem;
 
 /**
@@ -30,8 +31,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		DriveSystem.initialize();
 		LiftSystem.initialize();
-        // instantiate the command used for the autonomous period
-        //autonomousCommand = new ;
+        GripperSystem.initialize();
     }
 	
 	public void disabledPeriodic() {
