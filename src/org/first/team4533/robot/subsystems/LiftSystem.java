@@ -9,23 +9,27 @@ import org.first.team4533.robot.RobotMap;
  *
  */
 public class LiftSystem extends Subsystem {
-	
-	private static final LiftSystem INSTANCE = new LiftSystem();
-    private Talon liftMotor;
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
-    private LiftSystem() {
-    	liftMotor = new Talon(RobotMap.LIFT_MOTOR);
-    }
-    public static LiftSystem getInstance() {
-    	return INSTANCE;
-    }
-    
+
+	private static LiftSystem INSTANCE;
+	private Talon liftMotor;
+
+	private LiftSystem() {
+		liftMotor = new Talon(RobotMap.MOTOR_LIFT);
+
+	}
+	public static LiftSystem getInstance() {
+		return INSTANCE;
+	}
+
+	public static void initialize() {
+		if (INSTANCE == null)
+			INSTANCE = new LiftSystem();
+	}
+
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
-
