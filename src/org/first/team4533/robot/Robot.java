@@ -31,6 +31,7 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
 		oi = new OI();
+		DriveSystem.initialize();
         // instantiate the command used for the autonomous period
         autonomousCommand = new ExampleCommand();
     }
@@ -57,7 +58,7 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
-        DriveSystem.getInstance();
+        //DriveSystem.getInstance();
         LiftSystem.getInstance();
     }
 

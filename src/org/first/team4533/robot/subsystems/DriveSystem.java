@@ -11,11 +11,11 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class DriveSystem extends Subsystem {
     
-    public static final DriveSystem INSTANCE = new DriveSystem();
-    private Talon leftFront;
-    private Talon rightFront;
-    private Talon leftRear;
-    private Talon rightRear;
+    private static DriveSystem INSTANCE;
+    private SpeedController leftFront;
+    private SpeedController rightFront;
+    private SpeedController leftRear;
+    private SpeedController rightRear;
     private RobotDrive robotDrive;
     
     private DriveSystem(){
@@ -26,6 +26,12 @@ public class DriveSystem extends Subsystem {
     	robotDrive = new RobotDrive(this.leftFront, this.leftRear, this.rightFront, this.rightRear);
     	robotDrive.setInvertedMotor(MotorType.kFrontRight, true);
     	robotDrive.setInvertedMotor(MotorType.kRearRight, true);
+    }
+    
+    public static void initialize(){
+    	if(INSTANCE == null){
+    		INSTANCE = new DriveSystem();
+    	}
     }
     
     public static DriveSystem getInstance(){
