@@ -27,15 +27,15 @@ public class GripperSystem extends Subsystem {
     }
     
     public void open(){
-    	this.gripperMotor.set(1);
+    	this.gripperMotor.set(1.0);
     }
     
     public void close(){
-    	this.gripperMotor.set(-1);
+    	this.gripperMotor.set(-1.0);
     }
     
     public void stop(){
-    	this.gripperMotor.set(0);
+    	this.gripperMotor.set(0.0);
     }
     
     public void initDefaultCommand() {
