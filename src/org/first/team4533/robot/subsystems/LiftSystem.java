@@ -25,6 +25,16 @@ public class LiftSystem extends Subsystem {
 		if (INSTANCE == null)
 			INSTANCE = new LiftSystem();
 	}
+	
+	public void up() {
+		liftMotor.set(0.5);
+	}
+	public void down() {
+		liftMotor.set(-0.5); 
+	}
+	public void stop() {
+		liftMotor.set(0.0);
+	}
 
 	@Override
 	protected void initDefaultCommand() {
