@@ -28,7 +28,7 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-		oi = new OI();
+		OI.initialize();
 		DriveSystem.initialize();
 		LiftSystem.initialize();
         GripperSystem.initialize();
