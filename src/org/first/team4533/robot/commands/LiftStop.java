@@ -12,6 +12,7 @@ public class LiftStop extends Command {
 
 	public LiftStop() {
 		this.lift = LiftSystem.getInstance();
+		requires(lift);
 	}
 
 	protected void execute() {

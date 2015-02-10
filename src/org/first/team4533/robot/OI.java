@@ -24,7 +24,6 @@ public class OI {
 	// public static final int RANDOM_THING = 5;
 	public static final int JOYSTICK_GRIPPER_CLOSE = 6;
 	public static final int JOYSTICK_GRIPPER_OPEN = 7;
-
 	// public static final int RANDOM_THING = 8;
 	// public static final int RANDOM_THING = 9;
 	// public static final int RANDOM_THING = 10;
@@ -32,8 +31,10 @@ public class OI {
 
 	private OI() {
 		this.gunner = new Joystick(0);
-		JoystickButton liftDown = new JoystickButton(gunner, JOYSTICK_LIFT_DOWN);
-		JoystickButton liftUp = new JoystickButton(gunner, JOYSTICK_LIFT_UP);
+		JoystickButton liftDown = new JoystickButton(gunner,
+				JOYSTICK_LIFT_DOWN);
+		JoystickButton liftUp = new JoystickButton(gunner,
+				JOYSTICK_LIFT_UP);
 		JoystickButton gripperClose = new JoystickButton(gunner,
 				JOYSTICK_GRIPPER_CLOSE);
 		JoystickButton gripperOpen = new JoystickButton(gunner,
