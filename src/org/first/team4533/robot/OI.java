@@ -1,13 +1,16 @@
 package org.first.team4533.robot;
 
+import org.first.team4533.robot.commands.GripperClose;
+import org.first.team4533.robot.commands.GripperOpen;
+import org.first.team4533.robot.commands.GripperStop;
 import org.first.team4533.robot.commands.LiftDown;
 import org.first.team4533.robot.commands.LiftStop;
 import org.first.team4533.robot.commands.LiftUp;
-
+ 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-
+ 
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -46,11 +49,11 @@ public class OI {
 		liftUp.whileHeld(new LiftUp());
 		liftUp.whenReleased(new LiftStop());
 
-		// GripperClose.whileHeld(new GripperClose());
-		// GripperClose.whileReleased(new GripperStop());
+		gripperClose.whileHeld(new GripperClose());
+		gripperClose.whenReleased(new GripperStop());
 
-		// GripperOpen.whileHeld(new GripperOpen());
-		// GripperOpen.whileReleased(new GripperStop());
+		gripperOpen.whileHeld(new GripperOpen());
+		gripperOpen.whenReleased(new GripperStop());
 	}
 
 	public static OI getInstance() {
@@ -75,7 +78,7 @@ public class OI {
 	// three ways:
 
 	// Start the command when the button is pressed and let it run the command
-	// until it is finished as determined by it's isFinished method.
+	// until it is finished as determined by its isFinished method.
 	// button.whenPressed(new ExampleCommand());
 
 	// Run the command while the button is being held down and interrupt it once
