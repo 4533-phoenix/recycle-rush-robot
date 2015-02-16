@@ -41,7 +41,7 @@ public class DriveSystem extends Subsystem {
 	}
 
 	public void driveWithJoystick(Joystick driver) {
-		double x = -driver.getX() * 0.80;
+		double x = driver.getX() * 0.80;
 		double y = driver.getY() * 0.80;
 		double rot = 0.0;
 
