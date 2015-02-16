@@ -11,7 +11,7 @@ public class LiftDown extends Command {
 
 	public LiftDown() {
 		this.lift = LiftSystem.getInstance();
-		requires(lift);
+		this.requires(lift);
 	}
 
 	protected void execute() {

@@ -19,8 +19,6 @@ import org.first.team4533.robot.subsystems.LiftSystem;
  */
 public class Robot extends IterativeRobot {
 
-	public static OI oi;
-
     Command autonomousCommand;
 
     /**
@@ -28,10 +26,10 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-		OI.initialize();
 		DriveSystem.initialize();
 		LiftSystem.initialize();
         GripperSystem.initialize();
+        OI.initialize();
     }
 	
 	public void disabledPeriodic() {
@@ -56,8 +54,6 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
-        //DriveSystem.getInstance();
-        LiftSystem.getInstance();
     }
 
     /**

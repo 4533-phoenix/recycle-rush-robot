@@ -18,15 +18,15 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 public class OI {
 	private Joystick driver = new Joystick(0);
 	private Joystick gunner = new Joystick(1);
-	private static OI INSTANCE = new OI();
+	private static OI INSTANCE;
 	// public static final int RANDOM_THING = 0;
 	public static final int JOYSTICK_LIFT_UP = 1;
 	public static final int JOYSTICK_LIFT_DOWN = 2;
 	// public static final int RANDOM_THING = 3;
 	// public static final int RANDOM_THING = 4;
 	// public static final int RANDOM_THING = 5;
-	public static final int JOYSTICK_GRIPPER_CLOSE = 6;
-	public static final int JOYSTICK_GRIPPER_OPEN = 7;
+	public static final int JOYSTICK_GRIPPER_CLOSE = 7;
+	public static final int JOYSTICK_GRIPPER_OPEN = 8;
 	// public static final int RANDOM_THING = 8;
 	// public static final int RANDOM_THING = 9;
 	// public static final int RANDOM_THING = 10;
@@ -34,9 +34,9 @@ public class OI {
 
 	private OI() {
 		this.gunner = new Joystick(0);
-		JoystickButton liftDown = new JoystickButton(gunner,
+		JoystickButton liftDown = new JoystickButton(driver,
 				JOYSTICK_LIFT_DOWN);
-		JoystickButton liftUp = new JoystickButton(gunner,
+		JoystickButton liftUp = new JoystickButton(driver,
 				JOYSTICK_LIFT_UP);
 		JoystickButton gripperClose = new JoystickButton(gunner,
 				JOYSTICK_GRIPPER_CLOSE);
