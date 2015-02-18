@@ -19,6 +19,8 @@ public class DriveSystem extends Subsystem {
 	private SpeedController rightRear;
 	private RobotDrive robotDrive;
 
+	private static final double DEFAULT_SPEED_ADJUSTMENT = 0.60;
+
 	private DriveSystem() {
 		leftFront = new Talon(RobotMap.MOTOR_LEFT_FRONT);
 		rightFront = new Talon(RobotMap.MOTOR_RIGHT_FRONT);
@@ -41,15 +43,15 @@ public class DriveSystem extends Subsystem {
 	}
 
 	public void driveWithJoystick(Joystick driver) {
-		double x = driver.getX() * 0.80;
-		double y = driver.getY() * 0.80;
-		double rot = 0.0;
+		double x = driver.getX() * DEFAULT_SPEED_ADJUSTMENT;
+		double y = driver.getY() * DEFAULT_SPEED_ADJUSTMENT;
+		double rot = driver.getZ() * DEFAULT_SPEED_ADJUSTMENT;
 
-		if (driver.getRawButton(5)) {
-			rot = 0.80;
-		} else if (driver.getRawButton(6)) {
-			rot = -0.80;
-		}
+		// below code was replaced by aboves driver.getZ()*___
+		/*
+		 * if(driver.getRawButton(5)) { rot = 0.60; } else if
+		 * (driver.getRawButton(6)) { rot = -0.0; }
+		 */
 
 		this.robotDrive.mecanumDrive_Cartesian(x, y, rot, 0.0);
 	}
