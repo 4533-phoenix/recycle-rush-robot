@@ -43,17 +43,27 @@ public class DriveSystem extends Subsystem {
 	}
 
 	public void driveWithJoystick(Joystick driver) {
-		double x = driver.getX() * DEFAULT_SPEED_ADJUSTMENT;
-		double y = driver.getY() * DEFAULT_SPEED_ADJUSTMENT;
-		double rot = driver.getZ() * DEFAULT_SPEED_ADJUSTMENT;
+		double x = driver.getX();
+		double y = driver.getY();
+		double rotation = driver.getZ();
+		
+		double xAdjusted = Math.pow(x, 2) * DEFAULT_SPEED_ADJUSTMENT;
+		double yAdjusted = Math.pow(y, 2) * DEFAULT_SPEED_ADJUSTMENT;
+		double rotationAdjusted = Math.pow(rotation, 2) * 0.50;
 
-		// below code was replaced by aboves driver.getZ()*___
-		/*
-		 * if(driver.getRawButton(5)) { rot = 0.60; } else if
-		 * (driver.getRawButton(6)) { rot = -0.0; }
-		 */
-
-		this.robotDrive.mecanumDrive_Cartesian(x, y, rot, 0.0);
+		if (x < 0) {
+			xAdjusted *= -1;
+		}
+		
+		if (y < 0) {
+			yAdjusted *= -1;
+		}
+		
+		if (rotation < 0) {
+			rotationAdjusted *= -1;
+		}
+		
+		this.robotDrive.mecanumDrive_Cartesian(xAdjusted, yAdjusted, rotationAdjusted, 0.0);
 	}
 
 	public void forward(double value) {

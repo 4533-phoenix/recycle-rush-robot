@@ -17,24 +17,17 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class OI {
 	private Joystick driver = new Joystick(0);
-	private Joystick gunner = new Joystick(1);
+//	private Joystick gunner = new Joystick(1);
 	private static OI INSTANCE;
 	public static final int JOYSTICK_LIFT_DOWN2 = 1;
 	public static final int JOYSTICK_LIFT_UP2 = 2;
-	public static final int JOYSTICK_LIFT_UP = 6;
-	public static final int JOYSTICK_LIFT_DOWN = 5;
-	// public static final int RANDOM_THING = 3;
-	// public static final int RANDOM_THING = 4;
-	// public static final int RANDOM_THING = 5;
-	public static final int JOYSTICK_GRIPPER_CLOSE = 7;
-	public static final int JOYSTICK_GRIPPER_OPEN = 8;
-	// public static final int RANDOM_THING = 8;
-	// public static final int RANDOM_THING = 9;
-	// public static final int RANDOM_THING = 10;
-	// public static final int RANDOM_THING = 11;
+	public static final int JOYSTICK_LIFT_UP = 5;
+	public static final int JOYSTICK_LIFT_DOWN = 6;
+	public static final int JOYSTICK_GRIPPER_CLOSE = 8;
+	public static final int JOYSTICK_GRIPPER_OPEN = 7;
 
 	private OI() {
-		this.gunner = new Joystick(1);
+//		this.gunner = new Joystick(1);
 		JoystickButton liftDown = new JoystickButton(driver,
 				JOYSTICK_LIFT_DOWN);
 		JoystickButton liftUp = new JoystickButton(driver,
@@ -43,22 +36,22 @@ public class OI {
 				JOYSTICK_GRIPPER_CLOSE);
 		JoystickButton gripperOpen = new JoystickButton(driver,
 				JOYSTICK_GRIPPER_OPEN);
-		JoystickButton liftUp2 = new JoystickButton(gunner, 
-				JOYSTICK_LIFT_UP2);
-		JoystickButton liftDown2 = new JoystickButton(gunner, 
-				JOYSTICK_LIFT_DOWN2);
+////		JoystickButton liftUp2 = new JoystickButton(gunner, 
+//				JOYSTICK_LIFT_UP2);
+//		JoystickButton liftDown2 = new JoystickButton(gunner, 
+//				JOYSTICK_LIFT_DOWN2);
 
 		liftDown.whileHeld(new LiftDown());
 		liftDown.whenReleased(new LiftStop());
 		
-		liftDown2.whileHeld(new LiftDown());
-		liftDown2.whenReleased(new LiftStop());
+//		liftDown2.whileHeld(new LiftDown());
+//		liftDown2.whenReleased(new LiftStop());
 
 		liftUp.whileHeld(new LiftUp());
 		liftUp.whenReleased(new LiftStop());
 		
-		liftUp2.whileHeld(new LiftUp());
-		liftUp2.whenReleased(new LiftStop());
+//		liftUp2.whileHeld(new LiftUp());
+//		liftUp2.whenReleased(new LiftStop());
 
 		gripperClose.whileHeld(new GripperClose());
 		gripperClose.whenReleased(new GripperStop());
@@ -77,9 +70,9 @@ public class OI {
 		}
 	}
 
-	public Joystick getGunnerJoystick() {
-		return gunner;
-	}
+//	public Joystick getGunnerJoystick() {
+//		return gunner;
+//	}
 
 	public Joystick getDriverJoystick() {
 		return driver;
