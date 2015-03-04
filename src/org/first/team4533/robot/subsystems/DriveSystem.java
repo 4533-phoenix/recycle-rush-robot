@@ -46,7 +46,7 @@ public class DriveSystem extends Subsystem {
 		double x = driver.getX();
 		double y = driver.getY();
 		double rotation = driver.getZ();
-		
+
 		double xAdjusted = Math.pow(x, 2) * DEFAULT_SPEED_ADJUSTMENT;
 		double yAdjusted = Math.pow(y, 2) * DEFAULT_SPEED_ADJUSTMENT;
 		double rotationAdjusted = Math.pow(rotation, 2) * 0.50;
@@ -54,16 +54,17 @@ public class DriveSystem extends Subsystem {
 		if (x < 0) {
 			xAdjusted *= -1;
 		}
-		
+
 		if (y < 0) {
 			yAdjusted *= -1;
 		}
-		
+
 		if (rotation < 0) {
 			rotationAdjusted *= -1;
 		}
-		
-		this.robotDrive.mecanumDrive_Cartesian(xAdjusted, yAdjusted, rotationAdjusted, 0.0);
+
+		this.robotDrive.mecanumDrive_Cartesian(xAdjusted, yAdjusted,
+				rotationAdjusted, 0.0);
 	}
 
 	public void forward(double value) {

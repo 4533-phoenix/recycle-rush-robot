@@ -5,9 +5,9 @@ import org.first.team4533.robot.subsystems.DriveSystem;
 public class TimedDriveForward extends TimedCommand {
 
 	private DriveSystem drive;
-	
+
 	private static final double DEFAULT_DRIVE_SPEED = 0.50;
-	
+
 	public TimedDriveForward(long duration) {
 		super(duration);
 		this.drive = DriveSystem.getInstance();

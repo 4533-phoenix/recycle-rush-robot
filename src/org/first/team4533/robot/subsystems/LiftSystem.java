@@ -8,7 +8,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import org.first.team4533.robot.RobotMap;
 
 /**
- *This is the lift subsystem, it deals with anything involving the lifter and its components
+ * This is the lift subsystem, it deals with anything involving the lifter and
+ * its components
  */
 public class LiftSystem extends Subsystem {
 	private static LiftSystem INSTANCE;

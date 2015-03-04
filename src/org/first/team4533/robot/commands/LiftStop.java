@@ -5,7 +5,7 @@ import org.first.team4533.robot.subsystems.LiftSystem;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *This will cause the lifter to stop where it is?
+ * This will cause the lifter to stop where it is?
  */
 public class LiftStop extends Command {
 	private LiftSystem lift;

@@ -4,7 +4,7 @@ import org.first.team4533.robot.subsystems.LiftSystem;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *This will make the lifter to go down?
+ * This will make the lifter to go down?
  */
 public class LiftDown extends Command {
 	private LiftSystem lift;

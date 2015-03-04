@@ -8,10 +8,10 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  */
 public class DefaultAutonomous extends CommandGroup {
-    
+
 	private static final long DRIVE_FORWARD_DURATION = 2500;
-	
-    public  DefaultAutonomous() {
-    	this.addSequential(new TimedDriveForward(DRIVE_FORWARD_DURATION));
-    }
+
+	public DefaultAutonomous() {
+		this.addSequential(new TimedDriveForward(DRIVE_FORWARD_DURATION));
+	}
 }

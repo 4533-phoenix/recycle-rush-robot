@@ -10,33 +10,33 @@ import edu.wpi.first.wpilibj.command.Command;
 public class GripperClose extends Command {
 	private GripperSystem gripper;
 
-    public GripperClose() {
-        this.gripper = GripperSystem.getInstance();
-        requires(gripper);
-    }
+	public GripperClose() {
+		this.gripper = GripperSystem.getInstance();
+		requires(gripper);
+	}
 
-    // Called just before this Command runs the first time
-    protected void initialize() {
-    }
+	// Called just before this Command runs the first time
+	protected void initialize() {
+	}
 
-    // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-    	this.gripper.close();
-    }
+	// Called repeatedly when this Command is scheduled to run
+	protected void execute() {
+		this.gripper.close();
+	}
 
-    // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-        return false;
-    }
+	// Make this return true when this Command no longer needs to run execute()
+	protected boolean isFinished() {
+		return false;
+	}
 
-    // Called once after isFinished returns true
-    protected void end() {
-    	this.gripper.stop();
-    }
+	// Called once after isFinished returns true
+	protected void end() {
+		this.gripper.stop();
+	}
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
-    protected void interrupted() {
-    	this.gripper.stop();
-    }
+	// Called when another command which requires one or more of the same
+	// subsystems is scheduled to run
+	protected void interrupted() {
+		this.gripper.stop();
+	}
 }

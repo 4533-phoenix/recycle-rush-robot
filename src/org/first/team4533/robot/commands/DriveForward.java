@@ -6,21 +6,21 @@ import org.first.team4533.robot.subsystems.DriveSystem;
 public class DriveForward {
 	private DriveSystem drive;
 	private final double speed;
-	
-	public DriveForward(double speed){
+
+	public DriveForward(double speed) {
 		this.speed = speed;
 		this.drive = DriveSystem.getInstance();
 	}
-	
-	protected void execute(){
+
+	protected void execute() {
 		this.drive.forward(this.speed);
 	}
-	
-	protected void end(){
+
+	protected void end() {
 		this.drive.stop();
 	}
-	
-	protected void interrupted(){
+
+	protected void interrupted() {
 		this.drive.stop();
 	}
 }
